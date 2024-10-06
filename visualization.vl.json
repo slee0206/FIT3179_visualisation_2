@@ -1,80 +1,191 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 600,
-  "title": "Waste vs Recycle in Australia (2020-2021)",
-  "projection": {"type": "mercator", "center": [133, -28], "scale": 600},
-  "layer": [
+  "title": {
+    "text": "Total Disposal and Recycling in Australia",
+    "anchor": "middle"
+  },
+  "hconcat": [
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/au-states-topo.json",
-        "format": {"type": "topojson", "feature": "austates"}
+      "title": {
+        "text": "Total Disposal (Tonnes)",
+        "anchor": "middle"
       },
-      "mark": {
-        "type": "geoshape",
-        "fill": "lightgray",
-        "stroke": "black",
-        "strokeWidth": 1
-      }
+      "width": 500,
+      "height": 700,
+      "projection": {"type": "mercator", "center": [110, -28], "scale": 500},
+      "layer": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/au-states-topo.json",
+            "format": {"type": "topojson", "feature": "austates"}
+          },
+          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black", "strokeWidth": 1}
+        },
+        {
+          "data": {"url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle.csv"},
+          "transform": [
+            {"filter": "datum.Fate != 'Recycling'"},
+            {"filter": "datum.Year == year_slider"},
+            {
+              "aggregate": [{"op": "sum", "field": "Tonnes", "as": "total_waste"}],
+              "groupby": ["Jurisdiction"]
+            },
+            {
+              "lookup": "Jurisdiction",
+              "from": {
+                "data": {
+                  "values": [
+                    {"state": "NSW", "longitude": 146.0, "latitude": -32.0},
+                    {"state": "Vic", "longitude": 144.0, "latitude": -37.0},
+                    {"state": "Qld", "longitude": 144.0, "latitude": -22.0},
+                    {"state": "WA", "longitude": 122.0, "latitude": -25.0},
+                    {"state": "SA", "longitude": 135.0, "latitude": -30.0},
+                    {"state": "Tas", "longitude": 146.0, "latitude": -42.0},
+                    {"state": "NT", "longitude": 133.0, "latitude": -20.0},
+                    {"state": "ACT", "longitude": 149.0, "latitude": -35.3}
+                  ]
+                },
+                "key": "state",
+                "fields": ["longitude", "latitude"]
+              }
+            }
+          ],
+          "layer": [
+            {
+              "mark": {"type": "circle", "opacity": 0.8},
+              "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "size": {
+                  "field": "total_waste",
+                  "type": "quantitative",
+                  "title": "Total Waste (Tonnes)",
+                  "scale": {"range": [100, 5000]}
+                },
+                "color": {
+                  "field": "total_waste",
+                  "type": "quantitative",
+                  "title": "Total Waste (Tonnes)",
+                  "scale": {"scheme": "yellowgreen"},
+                  "legend": null
+                },
+                "tooltip": [
+                  {"field": "Jurisdiction", "type": "nominal", "title": "State"},
+                  {"field": "total_waste", "type": "quantitative", "title": "Total Waste (Tonnes)", "format": ",.0f"}
+                ]
+              }
+            },
+            {
+              "mark": {"type": "text", "dx": 10, "dy": -10, "fontSize": 10, "fontWeight": "bold"},
+              "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "text": {"field": "total_waste", "type": "quantitative", "format": ",.0f"},
+                "color": {"value": "black"}
+              }
+            }
+          ]
+        }
+      ]
     },
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle.csv"
+      "title": {
+        "text": "Total Recycling (Tonnes)",
+        "anchor": "middle"
       },
-      "transform": [
-        {"filter": "datum.Year == '2020-2021'"},
-        {"filter": "datum.Management != 'Recycling'"},
+      "width": 500,
+      "height": 700,
+      "projection": {"type": "mercator", "center": [110, -28], "scale": 300},
+      "layer": [
         {
-          "aggregate": [{"op": "sum", "field": "Tonnes", "as": "total_waste"}],
-          "groupby": ["Jurisdiction"]
+          "data": {
+            "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/au-states-topo.json",
+            "format": {"type": "topojson", "feature": "austates"}
+          },
+          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black", "strokeWidth": 1}
         },
         {
-          "lookup": "Jurisdiction",
-          "from": {
-            "data": {
-              "values": [
-                {"state": "NSW", "longitude": 146, "latitude": -32},
-                {"state": "Vic", "longitude": 144, "latitude": -37},
-                {"state": "Qld", "longitude": 144, "latitude": -22},
-                {"state": "WA", "longitude": 122, "latitude": -25},
-                {"state": "SA", "longitude": 135, "latitude": -30},
-                {"state": "Tas", "longitude": 146, "latitude": -42},
-                {"state": "NT", "longitude": 133, "latitude": -20},
-                {"state": "ACT", "longitude": 149, "latitude": -35.3}
-              ]
+          "data": {"url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle.csv"},
+          "transform": [
+            {"filter": "datum.Fate == 'Recycling'"},
+            {"filter": "datum.Year == year_slider"},
+            {
+              "aggregate": [{"op": "sum", "field": "Tonnes", "as": "total_recycling"}],
+              "groupby": ["Jurisdiction"]
             },
-            "key": "state",
-            "fields": ["longitude", "latitude"]
-          }
+            {
+              "lookup": "Jurisdiction",
+              "from": {
+                "data": {
+                  "values": [
+                    {"state": "NSW", "longitude": 146.0, "latitude": -32.0},
+                    {"state": "Vic", "longitude": 144.0, "latitude": -37.0},
+                    {"state": "Qld", "longitude": 144.0, "latitude": -22.0},
+                    {"state": "WA", "longitude": 122.0, "latitude": -25.0},
+                    {"state": "SA", "longitude": 135.0, "latitude": -30.0},
+                    {"state": "Tas", "longitude": 146.0, "latitude": -42.0},
+                    {"state": "NT", "longitude": 133.0, "latitude": -20.0},
+                    {"state": "ACT", "longitude": 149.0, "latitude": -35.3}
+                  ]
+                },
+                "key": "state",
+                "fields": ["longitude", "latitude"]
+              }
+            }
+          ],
+          "layer": [
+            {
+              "mark": {"type": "circle", "opacity": 0.8},
+              "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "size": {
+                  "field": "total_recycling",
+                  "type": "quantitative",
+                  "title": "Total Recycling (Tonnes)",
+                  "scale": {"range": [100, 5000]}
+                },
+                "color": {
+                  "field": "total_recycling",
+                  "type": "quantitative",
+                  "title": "Total Recycling (Tonnes)",
+                  "scale": {"scheme": "blues"},
+                  "legend": null
+                },
+                "tooltip": [
+                  {"field": "Jurisdiction", "type": "nominal", "title": "State"},
+                  {"field": "total_recycling", "type": "quantitative", "title": "Total Recycling (Tonnes)", "format": ",.0f"}
+                ]
+              }
+            },
+            {
+              "mark": {"type": "text", "dx": 10, "dy": -10, "fontSize": 10, "fontWeight": "bold"},
+              "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "text": {"field": "total_recycling", "type": "quantitative", "format": ",.0f"},
+                "color": {"value": "black"}
+              }
+            }
+          ]
         }
-      ],
-      "mark": {"type": "circle", "opacity": 0.8},
-      "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "size": {
-          "field": "total_waste",
-          "type": "quantitative",
-          "title": "Total Waste (Tonnes)",
-          "scale": {"range": [100, 5000]}
-        },
-        "color": {
-          "field": "total_waste",
-          "type": "quantitative",
-          "title": "Total Waste (Tonnes)",
-          "scale": {"scheme": "reds"}
-        },
-        "tooltip": [
-          {"field": "Jurisdiction", "type": "nominal", "title": "State"},
-          {
-            "field": "total_waste",
-            "type": "quantitative",
-            "title": "Total Waste (Tonnes)",
-            "format": ",.0f"
-          }
-        ]
-      }
+      ]
     }
   ],
-  "config": {"legend": {"orient": "bottom-left", "offset": 0}}
+  "resolve": {
+    "scale": {"color": "independent"}
+  },
+  "params": [
+    {
+      "name": "year_slider",
+      "value": 2020,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2020,
+        "step": 1,
+        "name": "Year:"
+      }
+    }
+  ]
 }
