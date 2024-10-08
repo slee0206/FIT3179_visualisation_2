@@ -17,14 +17,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f2f5; /* Light background color */
+            background-color: #edf2f7; /* Softer background color */
         }
 
         /* Title banner styles */
         .title-banner {
+            position: relative;
             width: 100%;
             height: 300px;
-            background-image: url('https://www.implasticfree.com/wp-content/uploads/2022/05/Recycling-Guide-Australia.jpg'); /* Replace with your image URL */
+            background-image: url('https://www.implasticfree.com/wp-content/uploads/2022/05/Recycling-Guide-Australia.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -32,45 +33,81 @@
             justify-content: center;
             color: #ffffff;
             text-align: center;
+            overflow: hidden;
+        }
+
+        /* Gradient overlay on the banner */
+        .title-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            z-index: 1;
         }
 
         .title-banner h1 {
+            position: relative;
             font-size: 48px;
             font-weight: 700;
             text-transform: uppercase;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Shadow for readability */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 2;
             margin: 0;
         }
 
         /* Main content area */
         .content {
-            background-color: #d3d3d3; /* Example background color */
-            padding: 40px 20px;
-            width: 100%;
+            background-color: #ffffff;
+            padding: 40px 30px;
+            width: 90%;
             max-width: 1200px;
-            margin-top: -50px; /* Overlap effect */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            margin-top: -50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             text-align: center;
         }
 
         /* Paragraph styles */
         p {
             font-size: 18px;
-            color: #606f7b;
+            color: #2d3748;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
         
         /* Visualization container styling */
         #vis {
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-radius: 8px;
-            border: 2px solid #dcdcdc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
+            background-color: #f7fafc;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
             max-width: 800px;
-            margin: 20px 0;
+            margin: 30px auto;
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #3182ce;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #2b6cb0;
         }
     </style>
 
@@ -91,6 +128,9 @@
 
         <!-- Visualization Container (DIV) -->
         <div id="vis"></div>
+
+        <!-- Button for additional action -->
+        <a href="#comparison" class="btn">Switch to Comparison View</a>
     </div>
 
     <!-- JavaScript to Embed the Visualization -->
