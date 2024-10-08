@@ -12,24 +12,45 @@
         /* Apply the custom font to the body */
         body {
             font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Customize specific text styles */
         h1 {
             font-family: 'Roboto', sans-serif;
+            text-align: center;
             font-weight: 700;  /* Bold */
-            font-size: 32px;
-            color: #2c3e50;   /* Custom color */
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px; /* Custom color */
         }
 
         p {
             font-family: 'Roboto', sans-serif;
+            text-align: center;
             font-weight: 400;  /* Normal */
             font-size: 18px;
-            color: #34495e;
+            color: #606f7b;
+            margin-bottom: 10px;
+        }
+
+        /* Visualization container styling */
+        #vis {
+            background-color: #f9f9f9;  /* Light grey background */
+            padding: 15px;
+            border-radius: 8px;  /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Shadow for depth */
+            width: 90%;  /* Responsive width */
+            max-width: 800px;  /* Max width for larger screens */
+            margin: 20px 0;  /* Vertical spacing */
         }
     </style>
 
+    <!-- Vega libraries -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -39,8 +60,10 @@
     <p>This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
     <p>Use the slider to select the year and view the data for that specific period.</p>
 
+    <!-- Visualization Container (DIV) -->
     <div id="vis"></div>
 
+    <!-- JavaScript to Embed the Visualization (Script) -->
     <script>
         vegaEmbed('#vis', 'visualization.vl.json');
     </script>
