@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #edf2f7; /* Softer background color */
+            background-color: #f0f2f5; /* Background color for entire page */
         }
 
         /* Title banner styles */
@@ -58,13 +58,13 @@
             margin: 0;
         }
 
-        /* Main content area */
+        /* Main content area with a distinct background color */
         .content {
-            background-color: #ffffff;
+            background-color: #ffffff; /* Background color for the section after the title */
             padding: 40px 30px;
             width: 90%;
             max-width: 1200px;
-            margin-top: -50px;
+            margin-top: -50px; /* Creates a slight overlap with the title image */
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             text-align: center;
@@ -80,19 +80,13 @@
         
         /* Visualization container styling */
         #vis {
-            background-color: #f7fafc;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: 8px;
             width: 100%;
-            max-width: 800px;  /* Adjust this to a size that fits within the content */
-            margin: 0 auto;  /* Centering the element */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: transparent; /* Transparent to remove background */
         }
-
 
         /* Button styling */
         .btn {
@@ -125,7 +119,7 @@
         <h1>Australia Waste Management Visualization</h1>
     </div>
 
-    <!-- Main Content Section -->
+    <!-- Main Content Section with Background Color -->
     <div class="content">
         <p>This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
         <p>Use the slider to select the year and view the data for that specific period.</p>
