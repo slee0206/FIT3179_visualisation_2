@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle_V3.csv"
+  },
+  "transform": [
+    {"filter": "datum.Tonnes != null && datum.Tonnes > 0"},
+    {"filter": "datum.Fate === 'Disposal'"}
+  ],
+  "params": [
+    {
+      "name": "selectedYear",
+      "value": 2010,
+      "bind": {
+        "input": "select",
+        "options": [2010,2011,2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+        "name": "Year: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Year == selectedYear"}
+  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 50,
+    "stroke": "#ffffff"
+  },
+  "encoding": {
+    "theta": {
+      "aggregate": "sum",
+      "field": "Tonnes",
+      "type": "quantitative",
+      "title": "Total Waste (Tonnes)"
+    },
+    "color": {
+      "field": "Stream",
+      "type": "nominal",
+      "title": "Stream"
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Stream", "type": "nominal", "title": "Stream"},
+      {"field": "Tonnes", "type": "quantitative", "title": "Waste (Tonnes)"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "arc": {"cornerRadius": 5, "innerRadius": 20}
+  }
+}
