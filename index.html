@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australia Waste Management Visualization</title>
+    <title>Australia Waste and Recycle Management</title>
     
     <!-- Link to Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f2f5; /* Background color for entire page */
+            background-color: #f0f2f5; /* Light background color */
         }
 
         /* Title banner styles */
@@ -60,11 +60,11 @@
 
         /* Main content area with a distinct background color */
         .content {
-            background-color: #ffffff; /* Background color for the section after the title */
+            background-color: #ffffff;
             padding: 40px 30px;
             width: 90%;
             max-width: 1200px;
-            margin-top: -50px; /* Creates a slight overlap with the title image */
+            margin-top: -50px;
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             text-align: center;
@@ -80,32 +80,11 @@
         
         /* Visualization container styling */
         #vis {
-            padding: 25px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 800px;
-            margin: 30px auto;
-            background-color: transparent; /* Transparent to remove background */
-        }
-
-        /* Button styling */
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffffff;
-            background-color: #3182ce;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #2b6cb0;
+            padding: 0;  /* Remove padding to ensure map stays within bounds */
+            width: 100%; /* Full width of .content */
+            height: auto;
+            background-color: transparent; /* Transparent background */
+            margin: 0 auto; /* Centered */
         }
     </style>
 
@@ -126,9 +105,6 @@
 
         <!-- Visualization Container (DIV) -->
         <div id="vis"></div>
-
-        <!-- Button for additional action -->
-        <a href="#comparison" class="btn">Switch to Comparison View</a>
     </div>
 
     <!-- JavaScript to Embed the Visualization -->
