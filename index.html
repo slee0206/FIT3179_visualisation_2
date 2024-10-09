@@ -20,18 +20,18 @@
             background-color: #f0f2f5;
         }
 
-        .content {
-            background-color: #f0f2f5;
-            padding: 40px 30px;
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 20px;
-            border-radius: 12px;
+        .intro-text {
+            font-size: 18px;
+            color: #2d3748;
+            font-weight: bold;
+            line-height: 1.6;
             text-align: center;
+            margin-top: 40px;
         }
 
         /* Title banner styles */
         .title-banner {
+            position: relative;
             width: 100%;
             height: 300px;
             background-image: url('https://www.implasticfree.com/wp-content/uploads/2022/05/Recycling-Guide-Australia.jpg');
@@ -42,54 +42,140 @@
             justify-content: center;
             color: #ffffff;
             text-align: center;
+            overflow: hidden;
         }
 
-        /* Highlight text and intro-text */
-        .highlight-text, .intro-text {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        /* Section styling */
-        .visualization-section, .sunburst-section {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-top: 30px;
+        .title-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            z-index: 1;
         }
 
-        /* Visualization and Sunburst styling */
-        #vis, #sunburst-vis {
-            width: 65%;
+        .title-banner h1 {
+            position: relative;
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            margin: 0;
+        }
+
+        /* Main content area */
+        .content {
+            background-color: #f0f2f5;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        /* Visualization container */
+        #vis {
+            padding: 0;
+            width: 100%;
             height: 800px;
             background-color: transparent;
             margin: 0 auto;
         }
 
-        /* Annotation box styling */
-        .annotation-section, .sunburst-annotations {
-            width: 30%;
+        /* Annotation section styles */
+        .annotation-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
             background-color: #4a4a4a;
             color: #ffffff;
             padding: 20px;
             border-radius: 12px;
         }
 
-        .annotation-item, .sunburst-annotation-item {
+        .annotation-section img {
+            width: 45%;
+            border-radius: 8px;
+        }
+
+        .annotation-text {
+            width: 50%;
+            padding-left: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .annotation-text h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        .annotation-text a {
+            color: #69b3a2;
+            text-decoration: underline;
+        }
+
+        .highlight-text {
+            text-align: center;
             margin-bottom: 20px;
         }
 
-        .annotation-item h2, .sunburst-annotation-item h3 {
+        .highlight-text p {
+            font-size: 48px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.5);
+            margin: 0;
+        }
+
+        .highlight-text span {
+            color: #FFA500;
+            font-size: 64px;
+        }
+
+        /* Sunburst Chart Section */
+        .sunburst-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f2f5;
+            border-radius: 12px;
+        }
+
+        #sunburst-chart {
+            width: 60%;
+            min-width: 300px;
+        }
+
+        .sunburst-annotation {
+            width: 35%;
+            padding-left: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .sunburst-annotation-item {
+            margin-bottom: 20px;
+        }
+
+        .sunburst-annotation-item h3 {
             font-size: 20px;
+            font-weight: bold;
             color: #FFA500;
             margin: 0;
         }
 
-        .annotation-item p, .sunburst-annotation-item p {
-            font-size: 16px;
-            color: #ffffff;
-            line-height: 1.5;
+        .sunburst-annotation-item p {
+            color: #2d3748;
+            margin: 10px 0 0 0;
         }
     </style>
 
@@ -100,7 +186,7 @@
 <body>
     <!-- Title Banner -->
     <div class="title-banner">
-        <h1>Australia Waste Management Visualization</h1>
+        <h1>Australia Waste and Recycles Management</h1>
     </div>
 
     <!-- Main Content Section -->
@@ -108,57 +194,54 @@
         <div class="highlight-text">
             <p><span>11 million</span> tonnes of waste generated so far</p>
         </div>
-        <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states. Use the slider to select the year and view the data for that specific period.</p>
+        <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
+        <p class="intro-text">Use the slider to select the year and view the data for that specific period.</p>
 
-        <!-- Map Visualization Section -->
-        <div class="visualization-section">
-            <!-- Map Visualization -->
-            <div id="vis"></div>
+        <!-- Visualization Container -->
+        <div id="vis"></div>
+    </div>
 
-            <!-- Map Annotation Section -->
-            <div class="annotation-section">
-                <div class="annotation-item">
-                    <h2>Australia's Recycling and Waste Management Initiatives</h2>
-                    <p>Australia is committed to reducing its environmental impact through enhanced waste management and recycling strategies. In recent years, significant efforts have been made to improve recycling rates and minimize waste disposal across various sectors.</p>
-                    <p>Programs such as the <a href="https://www.environment.gov.au/protection/waste-policy" style="color: #FFA500; text-decoration: underline;">National Waste Policy</a> aim to promote a circular economy, where waste materials are reused and repurposed. These initiatives are vital for reducing landfill dependency, conserving resources, and protecting the environment for future generations.</p>
-                </div>
-            </div>
+    <!-- Annotation Section Below the Map -->
+    <div class="annotation-section">
+        <img src="https://theshout.com.au/wp-content/uploads/2022/03/37IwuIJ8_1200x800.jpeg" alt="Recycling Image">
+        <div class="annotation-text">
+            <h2>Australia's Recycling and Waste Management Initiatives</h2>
+            <p>Australia is committed to reducing its environmental impact through enhanced waste management and recycling strategies. In recent years, significant efforts have been made to improve recycling rates and minimize waste disposal across various sectors.</p>
+            <p>Programs such as the <a href="https://www.environment.gov.au/protection/waste-policy">National Waste Policy</a> aim to promote a circular economy, where waste materials are reused and repurposed. These initiatives are vital for reducing landfill dependency, conserving resources, and protecting the environment for future generations.</p>
+            <p>With ambitious targets for waste reduction and recycling, Australia is paving the way toward sustainable waste management practices, with a focus on reducing single-use plastics and increasing resource recovery.</p>
         </div>
+    </div>
 
-        <!-- Sunburst Visualization Section -->
-        <div class="sunburst-section">
-            <!-- Sunburst Chart -->
-            <div id="sunburst-vis"></div>
-
-            <!-- Sunburst Explanation Section -->
-            <div class="sunburst-annotations">
-                <div class="sunburst-annotation-item">
-                    <h3>C&D (Construction & Demolition)</h3>
-                    <p>Waste generated from construction and demolition activities, which include concrete, wood, and metal.</p>
-                </div>
-                <div class="sunburst-annotation-item">
-                    <h3>C&I (Commercial & Industrial)</h3>
-                    <p>Waste generated by commercial and industrial operations, including plastics, metals, and packaging materials.</p>
-                </div>
-                <div class="sunburst-annotation-item">
-                    <h3>MSW (Municipal Solid Waste)</h3>
-                    <p>Waste generated by households and businesses, typically managed by municipalities, such as food waste and packaging.</p>
-                </div>
-                <div class="sunburst-annotation-item">
-                    <h3>Total</h3>
-                    <p>The combined total of all waste streams, representing Australia's overall waste generation.</p>
-                </div>
+    <!-- Sunburst Chart Section -->
+    <div class="sunburst-section">
+        <div id="sunburst-chart"></div>
+        <div class="sunburst-annotation">
+            <div class="sunburst-annotation-item">
+                <h3>C&D (Construction & Demolition)</h3>
+                <p>Waste generated from construction and demolition activities, which include concrete, wood, and metal.</p>
+            </div>
+            <div class="sunburst-annotation-item">
+                <h3>C&I (Commercial & Industrial)</h3>
+                <p>Waste generated by commercial and industrial operations, including plastics, metals, and packaging materials.</p>
+            </div>
+            <div class="sunburst-annotation-item">
+                <h3>MSW (Municipal Solid Waste)</h3>
+                <p>Waste generated by households and businesses, typically managed by municipalities, such as food waste and packaging.</p>
+            </div>
+            <div class="sunburst-annotation-item">
+                <h3>Total</h3>
+                <p>The combined total of all waste streams, representing Australia's overall waste generation.</p>
             </div>
         </div>
     </div>
 
     <!-- Vega Embed Scripts -->
     <script>
-        // Embed Map Visualization
+        // Embed the main map visualization
         vegaEmbed('#vis', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualization_1.json');
 
-        // Embed Sunburst Visualization
-        vegaEmbed('#sunburst-vis', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_2.json');
+        // Embed the sunburst chart
+        vegaEmbed('#sunburst-chart', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_2.json');
     </script>
 </body>
 </html>
