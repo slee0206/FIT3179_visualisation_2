@@ -118,6 +118,25 @@
             color: #69b3a2;
             text-decoration: underline;
         }
+
+        .highlight-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-text p {
+            font-size: 48px; /* Large font size */
+            font-weight: bold;
+            color: #ffffff; /* White text color */
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), /* Outer glow effect */
+                         0 0 20px rgba(255, 140, 0, 0.5);
+            margin: 0;
+        }
+        
+        .highlight-text span {
+            color: #FFA500; /* Slightly different color for the emphasized number */
+            font-size: 64px; /* Larger font for the number */
+        }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -132,6 +151,9 @@
 
     <!-- Main Content Section -->
     <div class="content">
+        <div class="highlight-text">
+            <p><span>11 million</span> tonnes of waste generated so far</p>
+        </div>
         <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
         <p class="intro-text">Use the slider to select the year and view the data for that specific period.</p>
 
