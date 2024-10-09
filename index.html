@@ -137,6 +137,13 @@
             color: #FFA500; /* Slightly different color for the emphasized number */
             font-size: 64px; /* Larger font for the number */
         }
+
+        .headline {
+            font-size: 48px; /* Adjust font size */
+            color: black; /* Black for the rest of the text */
+            margin: 0;
+        }
+        
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -151,15 +158,18 @@
 
     <!-- Main Content Section -->
     <div class="content">
-        <div class="highlight-text">
-            <p><span>11 million</span></p> <p>tonnes of waste generated so far</p>
-        </div>
+        <p class="headline">
+            <span class="highlight-text">11 million</span> tonnes of waste generated so far
+        </p>
+    
+        <!-- Introductory text -->
         <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
         <p class="intro-text">Use the slider to select the year and view the data for that specific period.</p>
-
-        <!-- Visualization Container -->
+    
+        <!-- Visualization container -->
         <div id="vis"></div>
     </div>
+
 
     <!-- Annotation Section Below the Map -->
     <div class="annotation-section">
