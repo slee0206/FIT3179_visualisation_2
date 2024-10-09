@@ -1,5 +1,3 @@
-MAP
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Total Disposal and Recycling in Australia",
