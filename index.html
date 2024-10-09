@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f2f5; /* Light background color */
+            background-color: #f0f2f5;
         }
 
         /* Title banner styles */
@@ -36,7 +36,6 @@
             overflow: hidden;
         }
 
-        /* Gradient overlay on the banner */
         .title-banner::before {
             content: '';
             position: absolute;
@@ -58,7 +57,7 @@
             margin: 0;
         }
 
-        /* Main content area with a distinct background color */
+        /* Main content area */
         .content {
             background-color: #f0f2f5;
             padding: 40px 30px;
@@ -66,25 +65,51 @@
             max-width: 1200px;
             margin-top: -50px;
             border-radius: 12px;
-            border: none;
             text-align: center;
         }
+        
+        /* Visualization container */
+        #vis {
+            padding: 0;
+            width: 100%;
+            height: auto;
+            background-color: transparent;
+            margin: 0 auto;
+        }
 
-        /* Paragraph styles */
-        p {
+        /* Annotation section styles */
+        .annotation-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+            background-color: #4a4a4a;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .annotation-section img {
+            width: 45%;
+            border-radius: 8px;
+        }
+
+        .annotation-text {
+            width: 50%;
+            padding-left: 20px;
             font-size: 18px;
-            color: #2d3748;
-            margin-bottom: 20px;
             line-height: 1.6;
         }
-        
-        /* Visualization container styling */
-        #vis {
-            padding: 0;  /* Remove padding to ensure map stays within bounds */
-            width: 100%; /* Full width of .content */
-            height: auto;
-            background-color: transparent; /* Transparent background */
-            margin: 0 auto; /* Centered */
+
+        .annotation-text h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        .annotation-text a {
+            color: #69b3a2;
+            text-decoration: underline;
         }
     </style>
 
@@ -93,23 +118,35 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <!-- Title Banner with Background Image -->
+    <!-- Title Banner -->
     <div class="title-banner">
-        <h1>Australia Waste and Recycle Management</h1>
+        <h1>Australia Waste Management Visualization</h1>
     </div>
 
-    <!-- Main Content Section with Background Color -->
+    <!-- Main Content Section -->
     <div class="content">
         <p>This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
         <p>Use the slider to select the year and view the data for that specific period.</p>
 
-        <!-- Visualization Container (DIV) -->
+        <!-- Visualization Container -->
         <div id="vis"></div>
     </div>
 
-    <!-- JavaScript to Embed the Visualization -->
+    <!-- Annotation Section Below the Map -->
+    <div class="annotation-section">
+        <img src="https://example.com/path-to-your-recycling-image.jpg" alt="Recycling Image"> <!-- Replace with your image URL -->
+        <div class="annotation-text">
+            <h2>Australia's Recycling and Waste Management Initiatives</h2>
+            <p>Australia is committed to reducing its environmental impact through enhanced waste management and recycling strategies. In recent years, significant efforts have been made to improve recycling rates and minimize waste disposal across various sectors.</p>
+            <p>Programs such as the <a href="https://www.environment.gov.au/protection/waste-policy">National Waste Policy</a> aim to promote a circular economy, where waste materials are reused and repurposed. These initiatives are vital for reducing landfill dependency, conserving resources, and protecting the environment for future generations.</p>
+            <p>With ambitious targets for waste reduction and recycling, Australia is paving the way toward sustainable waste management practices, with a focus on reducing single-use plastics and increasing resource recovery.</p>
+        </div>
+    </div>
+
+
+    <!-- Vega Embed Script -->
     <script>
-        vegaEmbed('#vis', 'visualization_1.json');
+        vegaEmbed('#vis', 'visualisation_1.json');
     </script>
 </body>
 </html>
