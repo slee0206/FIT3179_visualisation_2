@@ -21,10 +21,10 @@
         }
 
         .intro-text {
-            font-size: 18px; /* Adjust the size as needed */
-            color: #2d3748;  /* Optional: Adjust color */
+            font-size: 18px;
+            color: #2d3748;
             font-weight: bold;
-            line-height: 1.6; /* Adjust line-height for readability */
+            line-height: 1.6;
             text-align: center;
             margin-top: 40px;
         }
@@ -127,25 +127,51 @@
         }
         
         .highlight-text p {
-            font-size: 48px; /* Large font size */
+            font-size: 48px;
             font-weight: bold;
             color: black;
-            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), /* Outer glow effect */
-                         0 0 20px rgba(255, 140, 0, 0.5);
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.5);
             margin: 0;
         }
         
         .highlight-text span {
-            color: #FFA500; /* Slightly different color for the emphasized number */
-            font-size: 64px; /* Larger font for the number */
+            color: #FFA500;
+            font-size: 64px;
         }
 
-        .headline {
-            font-size: 48px; /* Adjust font size */
-            color: black; /* Black for the rest of the text */
-            margin: 0;
+        /* Sunburst Chart Section */
+        .sunburst-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f2f5;
+            border-radius: 12px;
         }
-        
+
+        #sunburst-chart {
+            width: 60%;
+            min-width: 300px;
+        }
+
+        .sunburst-annotation {
+            width: 35%;
+            padding-left: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .sunburst-annotation h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .sunburst-annotation p {
+            margin-top: 10px;
+        }
+
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -161,7 +187,7 @@
     <!-- Main Content Section -->
     <div class="content">
         <div class="highlight-text">
-            <p><span>11 million</span></p> <p>tonnes of waste generated so far</p>
+            <p><span>11 million</span> tonnes of waste generated so far</p>
         </div>
         <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
         <p class="intro-text">Use the slider to select the year and view the data for that specific period.</p>
@@ -172,7 +198,7 @@
 
     <!-- Annotation Section Below the Map -->
     <div class="annotation-section">
-        <img src="https://theshout.com.au/wp-content/uploads/2022/03/37IwuIJ8_1200x800.jpeg" alt="Recycling Image"> <!-- Replace with your image URL -->
+        <img src="https://theshout.com.au/wp-content/uploads/2022/03/37IwuIJ8_1200x800.jpeg" alt="Recycling Image">
         <div class="annotation-text">
             <h2>Australia's Recycling and Waste Management Initiatives</h2>
             <p>Australia is committed to reducing its environmental impact through enhanced waste management and recycling strategies. In recent years, significant efforts have been made to improve recycling rates and minimize waste disposal across various sectors.</p>
@@ -181,9 +207,22 @@
         </div>
     </div>
 
-    <!-- Vega Embed Script -->
+    <!-- Sunburst Chart Section -->
+    <div class="sunburst-section">
+        <div id="sunburst-chart"></div>
+        <div class="sunburst-annotation">
+            <h2>Understanding Australia's Waste Composition</h2>
+            <p>This sunburst chart shows a breakdown of various waste categories and their proportions. It helps identify major contributors to waste, aiding targeted reduction strategies.</p>
+        </div>
+    </div>
+
+    <!-- Vega Embed Scripts -->
     <script>
+        // Embed the main map visualization
         vegaEmbed('#vis', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualization_1.json');
+
+        // Embed the sunburst chart
+        vegaEmbed('#sunburst-chart', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_2.json');
     </script>
 </body>
 </html>
