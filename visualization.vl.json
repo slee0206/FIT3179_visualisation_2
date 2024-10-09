@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f0f2f5",
   "title": {
     "text": "Total Disposal and Recycling in Australia",
     "anchor": "middle"
@@ -19,7 +20,12 @@
             "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/au-states-topo.json",
             "format": {"type": "topojson", "feature": "austates"}
           },
-          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black", "strokeWidth": 1}
+          "mark": {
+            "type": "geoshape",
+            "fill": "#cccccc",
+            "stroke": "#999999",
+            "strokeWidth": 1
+          }
         },
         {
           "data": {"url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle.csv"},
@@ -60,7 +66,7 @@
                   "field": "total_waste",
                   "type": "quantitative",
                   "title": "Total Waste (Tonnes)",
-                  "scale": {"range": [100, 5000]}
+                  "scale": {"domain": [0, 4000000000], "range": [100, 5000]}  // Set fixed domain
                 },
                 "color": {
                   "field": "total_waste",
@@ -102,7 +108,12 @@
             "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/au-states-topo.json",
             "format": {"type": "topojson", "feature": "austates"}
           },
-          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black", "strokeWidth": 1}
+          "mark": {
+            "type": "geoshape",
+            "fill": "#cccccc",
+            "stroke": "#999999",
+            "strokeWidth": 1
+          }
         },
         {
           "data": {"url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle.csv"},
@@ -143,7 +154,7 @@
                   "field": "total_recycling",
                   "type": "quantitative",
                   "title": "Total Recycling (Tonnes)",
-                  "scale": {"range": [100, 5000]}
+                  "scale": {"domain": [0, 4000000000], "range": [100, 5000]}  // Set fixed domain
                 },
                 "color": {
                   "field": "total_recycling",
