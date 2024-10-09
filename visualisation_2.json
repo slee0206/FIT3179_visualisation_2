@@ -4,7 +4,7 @@
   "height": 600,
   "background":"#f0f2f5",
   "data": {
-    "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle_V3.csv"
+    "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle_V4.csv"
   },
   "transform": [
     {"filter": "datum.Tonnes != null && datum.Tonnes > 0"},
