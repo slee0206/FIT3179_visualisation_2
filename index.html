@@ -50,8 +50,8 @@
             margin-bottom: 20px;
         }
 
-        /* Sunburst and Annotation container */
-        .sunburst-section {
+        /* Section styling */
+        .visualization-section, .sunburst-section {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
@@ -59,14 +59,16 @@
             width: 100%;
         }
 
-        /* Sunburst chart styling */
-        #sunburst-vis {
+        /* Visualization and Sunburst styling */
+        #vis, #sunburst-vis {
             width: 65%;
-            height: auto;
+            height: 800px;
+            background-color: transparent;
+            margin: 0 auto;
         }
 
-        /* Sunburst description box styling */
-        .sunburst-annotations {
+        /* Annotation box styling */
+        .annotation-section, .sunburst-annotations {
             width: 30%;
             background-color: #4a4a4a;
             color: #ffffff;
@@ -74,17 +76,17 @@
             border-radius: 12px;
         }
 
-        .sunburst-annotation-item {
+        .annotation-item, .sunburst-annotation-item {
             margin-bottom: 20px;
         }
 
-        .sunburst-annotation-item h3 {
+        .annotation-item h2, .sunburst-annotation-item h3 {
             font-size: 20px;
-            color: #FFA500; /* Highlight color */
+            color: #FFA500;
             margin: 0;
         }
 
-        .sunburst-annotation-item p {
+        .annotation-item p, .sunburst-annotation-item p {
             font-size: 16px;
             color: #ffffff;
             line-height: 1.5;
@@ -108,12 +110,27 @@
         </div>
         <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states. Use the slider to select the year and view the data for that specific period.</p>
 
-        <!-- Sunburst Chart and Annotations Section -->
+        <!-- Map Visualization Section -->
+        <div class="visualization-section">
+            <!-- Map Visualization -->
+            <div id="vis"></div>
+
+            <!-- Map Annotation Section -->
+            <div class="annotation-section">
+                <div class="annotation-item">
+                    <h2>Australia's Recycling and Waste Management Initiatives</h2>
+                    <p>Australia is committed to reducing its environmental impact through enhanced waste management and recycling strategies. In recent years, significant efforts have been made to improve recycling rates and minimize waste disposal across various sectors.</p>
+                    <p>Programs such as the <a href="https://www.environment.gov.au/protection/waste-policy" style="color: #FFA500; text-decoration: underline;">National Waste Policy</a> aim to promote a circular economy, where waste materials are reused and repurposed. These initiatives are vital for reducing landfill dependency, conserving resources, and protecting the environment for future generations.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sunburst Visualization Section -->
         <div class="sunburst-section">
-            <!-- Sunburst Visualization -->
+            <!-- Sunburst Chart -->
             <div id="sunburst-vis"></div>
 
-            <!-- Annotations -->
+            <!-- Sunburst Explanation Section -->
             <div class="sunburst-annotations">
                 <div class="sunburst-annotation-item">
                     <h3>C&D (Construction & Demolition)</h3>
@@ -135,8 +152,12 @@
         </div>
     </div>
 
-    <!-- Vega Embed Script for Sunburst Chart -->
+    <!-- Vega Embed Scripts -->
     <script>
+        // Embed Map Visualization
+        vegaEmbed('#vis', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualization_1.json');
+
+        // Embed Sunburst Visualization
         vegaEmbed('#sunburst-vis', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_2.json');
     </script>
 </body>
