@@ -1,152 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australia Waste and Recycle Management</title>
-    
-    <!-- Link to Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    
-    <style>
-        /* Body styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f2f5;
+<script>
+    const simpleSpec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "description": "A simple bar chart with embedded data.",
+        "data": {
+            "values": [
+                {"category": "A", "amount": 28},
+                {"category": "B", "amount": 55},
+                {"category": "C", "amount": 43}
+            ]
+        },
+        "mark": "bar",
+        "encoding": {
+            "x": {"field": "category", "type": "ordinal"},
+            "y": {"field": "amount", "type": "quantitative"}
         }
+    };
 
-        /* Title banner styles */
-        .title-banner {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            background-image: url('https://www.implasticfree.com/wp-content/uploads/2022/05/Recycling-Guide-Australia.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .title-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
-            z-index: 1;
-        }
-
-        .title-banner h1 {
-            position: relative;
-            font-size: 48px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-            z-index: 2;
-            margin: 0;
-        }
-
-        /* Main content area */
-        .content {
-            background-color: #f0f2f5;
-            padding: 40px 30px;
-            width: 90%;
-            max-width: 1200px;
-            margin-top: -50px;
-            border-radius: 12px;
-            text-align: center;
-        }
-        
-        /* Visualization container */
-        #vis {
-            padding: 0;
-            width: 100%;
-            height: auto;
-            background-color: transparent;
-            margin: 0 auto;
-        }
-
-        /* Annotation section styles */
-        .annotation-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 30px;
-            background-color: #4a4a4a;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .annotation-section img {
-            width: 45%;
-            border-radius: 8px;
-        }
-
-        .annotation-text {
-            width: 50%;
-            padding-left: 20px;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .annotation-text h2 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-top: 0;
-        }
-
-        .annotation-text a {
-            color: #69b3a2;
-            text-decoration: underline;
-        }
-    </style>
-
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-</head>
-<body>
-    <!-- Title Banner -->
-    <div class="title-banner">
-        <h1>Australia Waste Management Visualization</h1>
-    </div>
-
-    <!-- Main Content Section -->
-    <div class="content">
-        <p>This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
-        <p>Use the slider to select the year and view the data for that specific period.</p>
-
-        <!-- Visualization Container -->
-        <div id="vis"></div>
-    </div>
-
-    <!-- Annotation Section Below the Map -->
-    <div class="annotation-section">
-        <img src="https://example.com/path-to-your-recycling-image.jpg" alt="Recycling Image"> <!-- Replace with your image URL -->
-        <div class="annotation-text">
-            <h2>Australia's Recycling and Waste Management Initiatives</h2>
-            <p>Australia is committed to reducing its environmental impact through enhanced waste management and recycling strategies. In recent years, significant efforts have been made to improve recycling rates and minimize waste disposal across various sectors.</p>
-            <p>Programs such as the <a href="https://www.environment.gov.au/protection/waste-policy">National Waste Policy</a> aim to promote a circular economy, where waste materials are reused and repurposed. These initiatives are vital for reducing landfill dependency, conserving resources, and protecting the environment for future generations.</p>
-            <p>With ambitious targets for waste reduction and recycling, Australia is paving the way toward sustainable waste management practices, with a focus on reducing single-use plastics and increasing resource recovery.</p>
-        </div>
-    </div>
-
-
-    <!-- Vega Embed Script -->
-    <script>
-        vegaEmbed('#vis', 'visualisation_1.json');
-    </script>
-</body>
-</html>
+    vegaEmbed('#vis', simpleSpec);
+</script>
