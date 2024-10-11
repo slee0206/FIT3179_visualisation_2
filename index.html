@@ -86,11 +86,33 @@
             margin: 0 auto;
         }
 
-        /* Menu styling */
+        /* Highlighted text styles */
+        .highlight-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .highlight-number {
+            font-size: 64px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(200, 0, 0, 0.5);
+        }
+
+        .highlight-subtext {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Left-side menu styling */
         .menu {
             display: flex;
-            justify-content: center;
-            margin-top: 30px;
+            flex-direction: column;
+            position: absolute;
+            top: 400px;
+            left: 20px;
+            z-index: 10;
         }
 
         .menu button {
@@ -100,8 +122,9 @@
             border: none;
             padding: 10px 20px;
             cursor: pointer;
-            margin: 0 5px;
+            margin-bottom: 10px;
             border-radius: 8px;
+            text-align: left;
         }
 
         .menu button.active {
@@ -153,7 +176,7 @@
         <div id="vis"></div>
     </div>
 
-    <!-- Menu for selecting visualization -->
+    <!-- Vertical Menu for selecting visualization -->
     <div class="menu">
         <button onclick="showSection('sunburst-section')" class="active">Sunburst Chart</button>
         <button onclick="showSection('additional-visualization-section')">New Visualization</button>
