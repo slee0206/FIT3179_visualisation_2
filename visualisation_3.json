@@ -5,7 +5,7 @@
     "url": "https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/clean_waste_recycle_V5.csv"
   },
   "transform": [
-    {"filter": "datum.Category != 'Total'"},
+    {"filter": "datum.Category != 'Total' && datum.Category != 'Mining' && datum.Category != 'Mineral processing' && datum.Category != 'Unclassified materials'"},
     {
       "aggregate": [{"op": "sum", "field": "Tonnes", "as": "TotalTonnes"}],
       "groupby": ["Year", "Category", "Fate"]
