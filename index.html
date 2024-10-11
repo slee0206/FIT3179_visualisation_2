@@ -192,6 +192,23 @@
             color: #2d3748;
             margin: 10px 0 0 0;
         }
+
+        .seattle-weather-exploration-section {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f2f5;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .seattle-weather-exploration-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -251,6 +268,12 @@
         </div>
     </div>
 
+    <!-- New Visualization Section Below the Sunburst Chart -->
+    <div class="seattle-weather-exploration-section">
+        <h2>Types of disposal / recycling Waste</h2>
+        <div id="seattle-visualization"></div>
+    </div>
+
     <!-- Vega Embed Scripts -->
     <script>
         // Embed the main map visualization
@@ -258,6 +281,9 @@
 
         // Embed the sunburst chart
         vegaEmbed('#sunburst-chart', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_2.json');
+
+        // Embed the additional visualization below the sunburst chart
+        vegaEmbed('#seattle-visualization', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_3.json');
     </script>
 </body>
 </html>
