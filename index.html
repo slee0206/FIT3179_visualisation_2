@@ -77,15 +77,6 @@
             text-align: center;
         }
 
-        /* Visualization container */
-        #vis {
-            padding: 0;
-            width: 100%;
-            height: 800px;
-            background-color: transparent;
-            margin: 0 auto;
-        }
-
         /* Highlighted text styles */
         .highlight-text {
             text-align: center;
@@ -105,20 +96,18 @@
             color: black;
         }
 
-        /* Bottom half styling */
+        /* Bottom section styling */
         .bottom-half {
-            background-color: #333; /* Dark grey background */
-            color: white; /* White text color */
             width: 100%;
-            padding: 40px 0;
+            background-color: #333333;
+            padding: 20px 0;
         }
 
-        /* Horizontal menu styling */
+        /* Menu styling */
         .menu {
             display: flex;
             justify-content: center;
-            padding-top: 20px;
-            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .menu button {
@@ -128,9 +117,8 @@
             border: none;
             padding: 10px 20px;
             cursor: pointer;
-            margin-bottom: 10px;
+            margin: 0 10px;
             border-radius: 8px;
-            text-align: center;
         }
 
         .menu button.active {
@@ -142,20 +130,43 @@
             display: none;
             width: 90%;
             max-width: 1200px;
-            margin-top: 20px;
-            padding: 20px;
+            margin: 0 auto;
             background-color: #f0f2f5;
             border-radius: 12px;
+            padding: 20px;
             text-align: center;
         }
 
         .visualization-section.active {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #sunburst-chart, #additional-visualization, #future-visualization {
-            width: 100%;
+            width: 70%;
             height: 600px;
+        }
+
+        /* Sunburst annotation styling */
+        .sunburst-annotation {
+            width: 25%;
+            margin-left: 20px;
+            font-size: 16px;
+            color: black; /* Updated to black */
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .sunburst-annotation-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFA500;
+            margin: 0;
+        }
+
+        .sunburst-annotation-item p {
+            margin: 10px 0 0 0;
         }
     </style>
 
@@ -182,9 +193,9 @@
         <div id="vis"></div>
     </div>
 
-    <!-- Bottom Half with Dark Grey Background -->
+    <!-- Bottom Section for Visualizations -->
     <div class="bottom-half">
-        <!-- Horizontal Menu for selecting visualization -->
+        <!-- Menu for selecting visualization -->
         <div class="menu">
             <button onclick="showSection('sunburst-section')" class="active">Sunburst Chart</button>
             <button onclick="showSection('additional-visualization-section')">New Visualization</button>
@@ -194,7 +205,6 @@
         <!-- Sunburst Chart Section -->
         <div id="sunburst-section" class="visualization-section active">
             <div id="sunburst-chart"></div>
-            <!-- Annotation -->
             <div class="sunburst-annotation">
                 <div class="sunburst-annotation-item">
                     <h3>C&D (Construction & Demolition)</h3>
@@ -236,7 +246,7 @@
 
         // Embed the additional visualization
         vegaEmbed('#additional-visualization', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_3.json');
-        
+
         // Function to switch sections based on selected menu button
         function showSection(sectionId) {
             // Hide all sections
