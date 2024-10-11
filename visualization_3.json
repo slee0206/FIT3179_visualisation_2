@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Waste Categories Over Years by Tonnes",
+  "data": {
+    "url": "https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/clean_waste_recycle_V5.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Category != 'Total' && datum.Category != 'Mining' && datum.Category != 'Mineral processing' && datum.Category != 'Unclassified materials'"
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "Tonnes", "as": "TotalTonnes"}],
+      "groupby": ["Year", "Category", "Fate"]
+    }
+  ],
+  "vconcat": [
+    {
+      "transform": [{"filter": {"param": "click"}}],
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "brush",
+            "title": "Category",
+            "field": "Category",
+            "type": "nominal",
+            "scale": {"scheme": "category10"}
+          },
+          "value": "lightgray"
+        },
+        "shape": {
+          "field": "Fate",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Disposal", "Recycling"],
+            "range": ["circle", "triangle"]
+          },
+          "legend": {"title": "Fate"}
+        },
+        "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+        "y": {
+          "field": "TotalTonnes",
+          "type": "quantitative",
+          "title": "Tonnes of Waste"
+        }
+      },
+      "width": 600,
+      "height": 300,
+      "mark": "point",
+      "params": [
+        {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}},
+        {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
+      ]
+    },
+    {
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "click",
+            "field": "Category",
+            "scale": {"scheme": "category10"}
+          },
+          "value": "lightgray"
+        },
+        "x": {
+          "aggregate": "count",
+          "field": "Category",
+          "type": "quantitative"
+        },
+        "y": {"title": "Category", "field": "Category", "type": "nominal"}
+      },
+      "width": 600,
+      "mark": "bar",
+      "params": [
+        {"name": "click", "select": {"type": "point", "encodings": ["color"]}}
+      ],
+      "transform": [{"filter": {"param": "brush"}}]
+    }
+  ],
+  "config": {}
+}
