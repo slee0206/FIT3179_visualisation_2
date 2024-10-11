@@ -14,7 +14,7 @@
   "vconcat": [
     {
       "transform": [
-        {"filter": {"param": "click", "empty": false}}  // Show only selected category on load
+        {"filter": {"param": "click"}}  // Displays all categories by default
       ],
       "encoding": {
         "color": {
@@ -57,8 +57,7 @@
         },
         {
           "name": "click",
-          "value": [{"Category": "Ash"}],  // Set "Ash" as the default selected category
-          "select": {"type": "point", "fields": ["Category"]}
+          "select": {"type": "point", "encodings": ["color"]}
         }
       ]
     },
