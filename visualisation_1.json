@@ -65,29 +65,19 @@
                 "size": {
                   "field": "total_waste",
                   "type": "quantitative",
-                  "title": "Total Waste (Tonnes)",
-                  "scale": {"domain": [0, 4000000000], "range": [100, 5000]}  // Set fixed domain
+                  "scale": {"domain": [0, 4000000000], "range": [100, 5000]},
+                  "legend": null  // Remove legend for size
                 },
                 "color": {
                   "field": "total_waste",
                   "type": "quantitative",
-                  "title": "Total Waste (Tonnes)",
                   "scale": {"scheme": "yellowgreen"},
-                  "legend": null
+                  "legend": null  // Remove legend for color
                 },
                 "tooltip": [
                   {"field": "Jurisdiction", "type": "nominal", "title": "State"},
                   {"field": "total_waste", "type": "quantitative", "title": "Total Waste (Tonnes)", "format": ",.0f"}
                 ]
-              }
-            },
-            {
-              "mark": {"type": "text", "dx": 10, "dy": -10, "fontSize": 10, "fontWeight": "bold"},
-              "encoding": {
-                "longitude": {"field": "longitude", "type": "quantitative"},
-                "latitude": {"field": "latitude", "type": "quantitative"},
-                "text": {"field": "total_waste", "type": "quantitative", "format": ",.0f"},
-                "color": {"value": "black"}
               }
             }
           ]
@@ -153,29 +143,19 @@
                 "size": {
                   "field": "total_recycling",
                   "type": "quantitative",
-                  "title": "Total Recycling (Tonnes)",
-                  "scale": {"domain": [0, 4000000000], "range": [100, 5000]}  // Set fixed domain
+                  "scale": {"domain": [0, 4000000000], "range": [100, 5000]},
+                  "legend": null  // Remove legend for size
                 },
                 "color": {
                   "field": "total_recycling",
                   "type": "quantitative",
-                  "title": "Total Recycling (Tonnes)",
                   "scale": {"scheme": "blues"},
-                  "legend": null
+                  "legend": null  // Remove legend for color
                 },
                 "tooltip": [
                   {"field": "Jurisdiction", "type": "nominal", "title": "State"},
                   {"field": "total_recycling", "type": "quantitative", "title": "Total Recycling (Tonnes)", "format": ",.0f"}
                 ]
-              }
-            },
-            {
-              "mark": {"type": "text", "dx": 10, "dy": -10, "fontSize": 10, "fontWeight": "bold"},
-              "encoding": {
-                "longitude": {"field": "longitude", "type": "quantitative"},
-                "latitude": {"field": "latitude", "type": "quantitative"},
-                "text": {"field": "total_recycling", "type": "quantitative", "format": ",.0f"},
-                "color": {"value": "black"}
               }
             }
           ]
