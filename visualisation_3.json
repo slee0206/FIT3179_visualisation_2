@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Waste Categories Over Years by Tonnes",
-  "background": "#4a4a4a",
+  "background": "#6b6b6b",
   "data": {
     "url": "https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/clean_waste_recycle_V5.csv"
   },
