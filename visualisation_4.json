@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/clean_waste_recycle_grouped.csv"
+  },
+  "transform": [
+    {"filter": "datum.Jurisdiction != 'Australia'"},
+    {"filter": "datum.Tonnes > 0"},
+    {
+      "window": [{"op": "sum", "field": "Tonnes", "as": "TotalTonnes"}],
+      "groupby": ["Jurisdiction"]
+    },
+    {
+      "calculate": "datum.Tonnes / datum.TotalTonnes * 100",
+      "as": "Percentage"
+    }
+  ],
+  "vconcat": [
+    {
+      "width": 800,
+      "height": 400,
+      "mark": "bar",
+      "params": [{
+        "name": "selectJurisdiction",
+        "select": {"type": "point", "fields": ["Jurisdiction"]}
+      }],
+      "encoding": {
+        "x": {
+          "field": "Jurisdiction",
+          "type": "ordinal",
+          "axis": {"labelAngle": -45},
+          "title": "Jurisdiction"
+        },
+        "y": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "stack": "normalize",
+          "title": "Percentage of Waste (%)"
+        },
+        "color": {
+          "field": "Type",
+          "type": "nominal",
+          "legend": {"title": "Waste Type"}  // Legend only in main chart
+        },
+        "opacity": {
+          "condition": {"param": "selectJurisdiction", "value": 1},
+          "value": 0.4
+        },
+        "tooltip": [
+          {"field": "Jurisdiction", "type": "nominal", "title": "Jurisdiction"},
+          {"field": "Type", "type": "nominal", "title": "Waste Type"},
+          {"field": "Percentage", "type": "quantitative", "format": ".2f", "title": "Percentage (%)"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": {"param": "selectJurisdiction"}}],
+      "width": 800,
+      "height": 500,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Type",
+          "type": "ordinal",
+          "axis": {"labelAngle": -45},
+          "title": "Waste Type"
+        },
+        "y": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "title": "Percentage of Waste (%)"
+        },
+        "color": {
+          "field": "Type",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {"field": "Jurisdiction", "type": "nominal", "title": "Jurisdiction"},
+          {"field": "Type", "type": "nominal", "title": "Waste Type"},
+          {"field": "Percentage", "type": "quantitative", "format": ".2f", "title": "Percentage (%)"}
+        ]
+      }
+    }
+  ]
+}
