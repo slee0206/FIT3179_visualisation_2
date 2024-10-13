@@ -2,13 +2,14 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
   "height": 600,
-  "background":"#6b6b6b",
+  "background": "#6b6b6b",
   "data": {
     "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle_V4.csv"
   },
   "transform": [
     {"filter": "datum.Tonnes != null && datum.Tonnes > 0"},
-    {"filter": "datum.Fate === 'Disposal'"}
+    {"filter": "datum.Fate === 'Disposal'"},
+    {"filter": "datum.Year == selectedYear"}
   ],
   "params": [
     {
@@ -16,13 +17,10 @@
       "value": 2010,
       "bind": {
         "input": "select",
-        "options": [2010,2011,2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+        "options": [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
         "name": "Year: "
       }
     }
-  ],
-  "transform": [
-    {"filter": "datum.Year == selectedYear"}
   ],
   "mark": {
     "type": "arc",
@@ -49,6 +47,24 @@
   },
   "config": {
     "view": {"stroke": "transparent"},
-    "arc": {"cornerRadius": 5, "innerRadius": 20}
+    "arc": {"cornerRadius": 5, "innerRadius": 20},
+    "axis": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "title": {
+      "color": "white"
+    },
+    "header": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "label": {
+      "color": "white"
+    }
   }
 }
