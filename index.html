@@ -19,19 +19,29 @@
             background-color: #f0f2f5;
         }
 
+        .intro-text {
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 20px;
+        }
+
         /* Title banner styles */
         .title-banner {
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 300px;
             background-image: url('https://www.implasticfree.com/wp-content/uploads/2022/05/Recycling-Guide-Australia.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             color: #ffffff;
+            text-align: center;
+            overflow: hidden;
         }
 
         .title-banner::before {
@@ -41,63 +51,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
             z-index: 1;
         }
 
-        .title-content {
+        .title-banner h1 {
             position: relative;
-            z-index: 2;
-            text-align: center;
-            color: #ffffff;
-            padding: 0 20px;
-        }
-
-        .title-content h1 {
-            font-size: 50px;
+            font-size: 48px;
             font-weight: 700;
-            margin: 0;
             text-transform: uppercase;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-        }
-
-        .title-content p.subtitle {
-            font-size: 20px;
-            font-weight: 400;
-            margin-top: 10px;
-            color: #e0e0e0;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Highlighted statistics */
-        .stats-section {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .stat-box {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 150px;
-        }
-
-        .stat-box p {
-            font-size: 32px;
-            font-weight: bold;
-            color: #FF5733;
-            margin: 5px 0;
-        }
-
-        .stat-box span {
-            font-size: 14px;
-            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            margin: 0;
         }
 
         /* Main content area */
@@ -106,54 +71,258 @@
             padding: 40px 30px;
             width: 90%;
             max-width: 1200px;
+            margin-top: 20px;
             border-radius: 12px;
             text-align: center;
-            margin-top: -40px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Highlighted text styles */
+        .highlight-text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .highlight-number {
+            font-size: 64px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(200, 0, 0, 0.5);
+        }
+
+        .highlight-subtext {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Bottom section styling */
+        .bottom-half {
+            width: 100%;
+            background-color: #666666;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Explore by text */
+        .explore-by-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+
+        /* Menu styling */
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu button {
+            background-color: #4a4a4a;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            border-radius: 8px;
+        }
+
+        .menu button.active {
+            background-color: #FFA500;
+        }
+
+        /* Sections for visualizations */
+        .visualization-section {
+            display: none;
+            width: 90%;
+            max-width: 2000px;
+            margin: 0 auto;
+            background-color: #4a4a4a;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .visualization-section.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #sunburst-chart, #additional-visualization, #future-visualization {
+            width: 100%;  /* Adjust width to ensure it fits the container */
+            max-width: 800px;  /* Set a maximum width */
+            height: 1000px;  /* Set height to control overflow */
+            max-height: 1500px; /* Set a maximum height */
+            margin: auto;  /* Center the visualization */
+        }
+
+        /* Sunburst annotation styling */
+        .sunburst-annotation {
+            width: 25%;
+            margin-left: 20px;
+            font-size: 16px;
+            color: white;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .sunburst-annotation-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFA500;
+            margin: 0;
+        }
+
+        .sunburst-annotation-item p {
+            margin: 10px 0 0 0;
+        }
+
+        /* New Section Styling */
+        .additional-graphs-section {
+            background-color: #ffffff;
+            padding: 40px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .additional-graphs-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .graph-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .graph-container {
+            width: 100%;
+            height: 600px;
+            margin: 20px 0;
         }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
     <!-- Title Banner -->
     <div class="title-banner">
-        <div class="title-content">
-            <h1>Australia Waste and Recycle Management</h1>
-            <p class="subtitle">Monitoring Australia's waste disposal and recycling efforts for a sustainable future.</p>
-        </div>
-    </div>
-
-    <!-- Statistics Section -->
-    <div class="stats-section">
-        <div class="stat-box">
-            <p>11M</p>
-            <span>Tonnes of Waste</span>
-        </div>
-        <div class="stat-box">
-            <p>4.6M</p>
-            <span>Tonnes Recycled</span>
-        </div>
-        <div class="stat-box">
-            <p>5.4M</p>
-            <span>Tonnes Disposed</span>
-        </div>
+        <h1>Australia Waste and Recycles Management</h1>
     </div>
 
     <!-- Main Content Section -->
     <div class="content">
-        <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
-        <p class="intro-text">Use the slider to select the year and view the data for that specific period.</p>
+        <div class="highlight-text">
+            <p><span class="highlight-number">11 million</span></p>
+            <p class="highlight-subtext">tonnes of waste generated so far</p>
+        </div>
 
         <!-- Main Map Visualization -->
         <div id="vis"></div>
+
+        <!-- Introductory text below the map -->
+        <p class="intro-text">This visualization provides a comparative analysis of waste disposal and recycling efforts across different Australian states.</p>
+        <p class="intro-text">Use the slider to select the year and view the data for that specific period.</p>
     </div>
 
-    <!-- Additional Script and Visualization Embedding as Before -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Bottom Section for Visualizations -->
+    <div class="bottom-half">
+        <!-- Explore By Text -->
+        <p class="explore-by-text">Explore by...</p>
+
+        <!-- Menu for selecting visualization -->
+        <div class="menu">
+            <button onclick="showSection('sunburst-section')" class="active">By Stream</button>
+            <button onclick="showSection('additional-visualization-section')">By Categories</button>
+            <button onclick="showSection('future-visualization-section')">By State</button>
+        </div>
+
+        <!-- Sunburst Chart Section -->
+        <div id="sunburst-section" class="visualization-section active">
+            <div id="sunburst-chart"></div>
+            <div class="sunburst-annotation">
+                <div class="sunburst-annotation-item">
+                    <h3>C&D (Construction & Demolition)</h3>
+                    <p>Waste generated from construction and demolition activities, which include concrete, wood, and metal.</p>
+                </div>
+                <div class="sunburst-annotation-item">
+                    <h3>C&I (Commercial & Industrial)</h3>
+                    <p>Waste generated by commercial and industrial operations, including plastics, metals, and packaging materials.</p>
+                </div>
+                <div class="sunburst-annotation-item">
+                    <h3>MSW (Municipal Solid Waste)</h3>
+                    <p>Waste generated by households and businesses, typically managed by municipalities, such as food waste and packaging.</p>
+                </div>
+                <div class="sunburst-annotation-item">
+                    <h3>Total</h3>
+                    <p>The combined total of all waste streams, representing Australia's overall waste generation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Visualization Section -->
+        <div id="additional-visualization-section" class="visualization-section">
+            <div id="additional-visualization"></div>
+        </div>
+
+        <!-- By State Visualization Section -->
+        <div id="future-visualization-section" class="visualization-section">
+            <div id="future-visualization"></div>
+        </div>
+    </div>
+
+    <!-- New Additional Graphs Section -->
+    <div class="additional-graphs-section">
+        <div class="additional-graphs-container">
+            <h2 class="graph-title">Recycling Trend Over 10 Years</h2>
+            <div id="recycling-trend" class="graph-container"></div>
+
+            <h2 class="graph-title">Disposal Trend Over 10 Years</h2>
+            <div id="disposal-trend" class="graph-container"></div>
+        </div>
+    </div>
+
+    <!-- Vega Embed Scripts -->
     <script>
         // Embed the main map visualization
         vegaEmbed('#vis', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualization_1.json');
+
+        // Embed the sunburst chart
+        vegaEmbed('#sunburst-chart', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_2.json');
+
+        // Embed the additional visualization
+        vegaEmbed('#additional-visualization', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_3.json');
+
+        // Embed the future visualization (By State)
+        vegaEmbed('#future-visualization', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation.by_state_type.json');
+
+        // Embed the new Recycling Trend and Disposal Trend visualizations
+        vegaEmbed('#recycling-trend', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_5_Recycling.json');
+        vegaEmbed('#disposal-trend', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_5_Disposal.json');
+
+        // Function to switch sections based on selected menu button
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.visualization-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update button active state
+            document.querySelectorAll('.menu button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`.menu button[onclick="showSection('${sectionId}')"]`).classList.add('active');
+        }
     </script>
 </body>
 </html>
