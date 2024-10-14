@@ -14,7 +14,7 @@
   ],
   "vconcat": [
     {
-      "width": 400,
+      "width": 700,
       "height": 300,
       "mark": "bar",
       "params": [
@@ -59,7 +59,7 @@
     },
     {
       "transform": [{"filter": {"param": "selectJurisdiction"}}],
-      "width": 400,
+      "width": 700,
       "height": 300,
       "mark": "bar",
       "encoding": {
