@@ -3,15 +3,14 @@
   "width": 500,
   "height": 500,
   "background": "#4a4a4a",
-  "title": {
-    "anchor": "middle"
-  },
+  "title": "Waste and Recycling Data by Stream",
   "data": {
     "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/clean_waste_recycle_V4.csv"
   },
   "transform": [
     {"filter": "datum.Tonnes != null && datum.Tonnes > 0"},
-    {"filter": "datum.Fate === 'Disposal'"},
+    {"filter": "(datum.Fate === 'Disposal' || datum.Fate === 'Recycling')"},
+    {"filter": "datum.Stream !== 'Total'"},
     {"filter": "datum.Year == selectedYear"}
   ],
   "params": [
@@ -60,13 +59,6 @@
       "titleColor": "white"
     },
     "title": {
-      "color": "white"
-    },
-    "header": {
-      "labelColor": "white",
-      "titleColor": "white"
-    },
-    "label": {
       "color": "white"
     }
   }
