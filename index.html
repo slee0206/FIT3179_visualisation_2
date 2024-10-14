@@ -64,6 +64,29 @@
             z-index: 2;
             margin: 0;
         }
+        .comparison-section {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        
+        .comparison-item {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            max-width: 150px;
+        }
+        
+        .comparison-item img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        .comparison-item p {
+            font-size: 14px;
+            color: #333;
+        }
 
         /* Main content area */
         .content {
@@ -292,6 +315,23 @@
             <p><span class="highlight-number">15.25 Billion</span></p>
             <p class="highlight-subtext">tonnes of waste generated so far in Australia</p>
         </div>
+
+        <div class="comparison-section">
+            <h2>What does 15.25 Billion Tonnes Look Like?</h2>
+            <div class="comparison-item">
+                <img src="path/to/earth_icon.png" alt="Earth icon">
+                <p>Equivalent to filling 1.5 Earths</p>
+            </div>
+            <div class="comparison-item">
+                <img src="path/to/everest_icon.png" alt="Everest icon">
+                <p>Enough to cover Mt. Everest 500 times</p>
+            </div>
+            <div class="comparison-item">
+                <img src="path/to/building_icon.png" alt="Building icon">
+                <p>Stacked, it reaches 50,000 Empire State Buildings</p>
+            </div>
+        </div>
+
 
         <!-- Main Map Visualization -->
         <div id="vis"></div>
