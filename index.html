@@ -152,8 +152,11 @@
         }
 
         #sunburst-chart, #additional-visualization, #future-visualization {
-            width: 70%;
-            height: 600px;
+            width: 100%;  /* Adjust width to ensure it fits the container */
+            max-width: 800px;  /* Set a maximum width */
+            height: 1000px;  /* Set height to control overflow */
+            max-height: 600px; /* Set a maximum height */
+            margin: auto;  /* Center the visualization */
         }
 
         /* Sunburst annotation styling */
