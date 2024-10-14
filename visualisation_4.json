@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#4a4a4a",
   "data": {
     "url": "https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/clean_waste_recycle_grouped.csv"
   },
