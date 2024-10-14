@@ -21,7 +21,7 @@
 
         .intro-text {
             font-size: 18px;
-            color: #black;
+            color: black;
             font-weight: bold;
             line-height: 1.6;
             text-align: center;
@@ -98,7 +98,7 @@
         /* Bottom section styling */
         .bottom-half {
             width: 100%;
-            background-color: #666666;  /* Slightly brighter than #4a4a4a */
+            background-color: #666666;
             padding: 20px 0;
             text-align: center;
         }
@@ -161,7 +161,7 @@
             width: 25%;
             margin-left: 20px;
             font-size: 16px;
-            color: white; /* Updated to white */
+            color: white;
             line-height: 1.6;
             text-align: left;
         }
@@ -212,7 +212,7 @@
         <div class="menu">
             <button onclick="showSection('sunburst-section')" class="active">By Stream</button>
             <button onclick="showSection('additional-visualization-section')">By Categories</button>
-            <button onclick="showSection('future-visualization-section')">Future Visualization</button>
+            <button onclick="showSection('future-visualization-section')">By State</button>
         </div>
 
         <!-- Sunburst Chart Section -->
@@ -243,9 +243,9 @@
             <div id="additional-visualization"></div>
         </div>
 
-        <!-- Placeholder for Future Visualization -->
+        <!-- By State Visualization Section -->
         <div id="future-visualization-section" class="visualization-section">
-            <p>Future visualization coming soon...</p>
+            <div id="future-visualization"></div>
         </div>
     </div>
 
@@ -259,6 +259,9 @@
 
         // Embed the additional visualization
         vegaEmbed('#additional-visualization', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_3.json');
+
+        // Embed the By State visualization
+        vegaEmbed('#future-visualization', 'https://raw.githubusercontent.com/slee0206/FIT3179_visualisation_2/refs/heads/main/visualisation_4.json');
 
         // Function to switch sections based on selected menu button
         function showSection(sectionId) {
