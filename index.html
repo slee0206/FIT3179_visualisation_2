@@ -206,6 +206,14 @@
             height: 600px;
             margin: 20px 0;
         }
+
+        .lastcomparison-heading {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -282,6 +290,8 @@
     <!-- New Additional Graphs Section -->
     <div class="additional-graphs-section">
         <div class="additional-graphs-container">
+            <h2 class="lastcomparison-heading">So... how did we go until now?</h2> <!-- New Title -->
+            
             <h2 class="graph-title">Recycling Trend Over 10 Years</h2>
             <div id="recycling-trend" class="graph-container"></div>
 
@@ -289,6 +299,8 @@
             <div id="disposal-trend" class="graph-container"></div>
         </div>
     </div>
+
+    
 
     <!-- Vega Embed Scripts -->
     <script>
