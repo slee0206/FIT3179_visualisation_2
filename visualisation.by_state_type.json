@@ -89,5 +89,17 @@
       }
     }
   ],
-  "config": {}
+  "config": {
+    "axis": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "title": {
+      "color": "white"
+    }
+  }
 }
