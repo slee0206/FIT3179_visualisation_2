@@ -13,6 +13,14 @@
       "projection": {"type": "mercator", "center": [110, -28], "scale": 500},
       "layer": [
         {
+          "data": {"sphere": true},
+          "mark": {"type": "geoshape", "fill": "none", "stroke": "#cccccc", "strokeWidth": 0.5}
+        },
+        {
+          "data": {"graticule": true},
+          "mark": {"type": "geoshape", "stroke": "#cccccc", "strokeWidth": 0.5}
+        },
+        {
           "data": {
             "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/au-states-topo.json",
             "format": {"type": "topojson", "feature": "austates"}
@@ -100,6 +108,14 @@
       "height": 700,
       "projection": {"type": "mercator", "center": [110, -28], "scale": 300},
       "layer": [
+        {
+          "data": {"sphere": true},
+          "mark": {"type": "geoshape", "fill": "none", "stroke": "#cccccc", "strokeWidth": 0.5}
+        },
+        {
+          "data": {"graticule": true},
+          "mark": {"type": "geoshape", "stroke": "#cccccc", "strokeWidth": 0.5}
+        },
         {
           "data": {
             "url": "https://raw.githubusercontent.com/slee0206/FIT2086_visualisation_2/refs/heads/main/au-states-topo.json",
