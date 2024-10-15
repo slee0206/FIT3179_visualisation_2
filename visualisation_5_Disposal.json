@@ -61,7 +61,7 @@
       "mark": {"type": "bar", "size": 45},
       "encoding": {
         "y2": {"field": "PreviousTonnes"},
-        "": {
+        "color": {
           "field": "ChangeType",
           "type": "nominal",
           "scale": {
@@ -111,7 +111,7 @@
         "align": "center",
         "dy": -10,
         "fontWeight": "bold",
-        "": "#404040"
+        "color": "#404040"
       },
       "encoding": {
         "y": {"field": "CumulativeSum", "type": "quantitative"},
