@@ -61,12 +61,12 @@
       "mark": {"type": "bar", "size": 45},
       "encoding": {
         "y2": {"field": "PreviousTonnes"},
-        "color": {
+        "": {
           "field": "ChangeType",
           "type": "nominal",
           "scale": {
             "domain": ["Increase", "Decrease"],
-            "range": ["#2ca02c", "#d62728"]
+            "range": ["#2ca02c", "#1f77b4"]
           },
           "legend": {"title": "Change Type"}
         },
@@ -111,7 +111,7 @@
         "align": "center",
         "dy": -10,
         "fontWeight": "bold",
-        "color": "#404040"
+        "": "#404040"
       },
       "encoding": {
         "y": {"field": "CumulativeSum", "type": "quantitative"},
